@@ -7,6 +7,25 @@
     {
         public int[] TwoSum(int[] nums, int target)
         {
+            Dictionary<int,int> pairs = new();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int diff = target - nums[i];
+                if (pairs.ContainsValue(diff))
+                {
+                    return [pairs.First(p => p.Value == diff).Key, i];
+                }
+                else
+                {
+                    pairs.Add(i, nums[i]);
+                }
+            }
+            return [];
+        }
+
+        //Бинарный поиск
+        public int[] TwoSumOld(int[] nums, int target)
+        {
             List<(int Index, int Value)> numsWithIndicies = new List<(int, int)>();
             for (int i = 0; i < nums.Length; i++)
             {
@@ -37,19 +56,6 @@
             }
 
             return [];
-        }
-
-        public int[] TwoSumFromSolutions(int[] nums, int target)
-        {
-            var m = new Dictionary<int, int>();
-            var x = nums.Select((v, i) => (i, v);
-
-            foreach (var (i, v) in nums.Select((v, i) => (i, v)))
-            {
-                try { return new int[] { i, m[target - v] }; }
-                catch (KeyNotFoundException) { m[v] = i; }
-            }
-            throw new Exception("never");
         }
     }
 }
