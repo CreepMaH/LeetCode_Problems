@@ -7,17 +7,17 @@
     {
         public int[] TwoSum(int[] nums, int target)
         {
-            Dictionary<int,int> pairs = new();
+            Dictionary<int,int> pairs = [];
             for (int i = 0; i < nums.Length; i++)
             {
                 int diff = target - nums[i];
-                if (pairs.ContainsValue(diff))
+                if (pairs.ContainsKey(diff))
                 {
-                    return [pairs.First(p => p.Value == diff).Key, i];
+                    return [pairs[diff], i];
                 }
                 else
                 {
-                    pairs.Add(i, nums[i]);
+                    pairs[nums[i]] = i;
                 }
             }
             return [];
