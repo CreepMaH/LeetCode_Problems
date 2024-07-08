@@ -2,7 +2,7 @@
 
 namespace Tests
 {
-    public class N2_AddTwoNumbersTest
+    public class N2_AddTwoNumbers_Test
     {
         private N2_AddTwoNumbers _n2_AddTwoNumbers;
 
@@ -13,7 +13,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void OrdinaryTest()
         {
             int[] nodeArray1 = [2, 4, 3];
             N2_AddTwoNumbers.ListNode listNode1 = new(nodeArray1[0]);
@@ -36,7 +36,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test2()
+        public void EmptyNodesTest()
         {
             int[] nodeArray1 = [0];
             N2_AddTwoNumbers.ListNode listNode1 = new(nodeArray1[0]);
@@ -59,7 +59,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test3()
+        public void OverflowTest()
         {
             int[] nodeArray1 = [9, 9, 9, 9, 9, 9, 9];
             N2_AddTwoNumbers.ListNode listNode1 = new(nodeArray1[0]);

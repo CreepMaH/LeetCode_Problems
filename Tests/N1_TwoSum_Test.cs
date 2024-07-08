@@ -2,7 +2,7 @@ using LeetCode_Problems;
 
 namespace Tests
 {
-    public class N1_TwoSumTest
+    public class N1_TwoSum_Test
     {
         private N1_TwoSum _n1_TwoSum;
 
