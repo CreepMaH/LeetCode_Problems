@@ -10,13 +10,12 @@
             int right = 0;
 
             HashSet<char> hashSet = [];
-            List<char> list = [];
 
             while (right < s.Length)
             {
-                list.Add(s[right]);
-                if (hashSet.Add(s[right]))
+                if (!hashSet.Contains(s[right]))
                 {
+                    hashSet.Add(s[right]);
                     if (hashSet.Count > maxLength)
                     {
                         maxLength++;
@@ -24,17 +23,12 @@
                 }
                 else
                 {
-                    int duplicateIndex = list.FindIndex(c => c == s[right]);
-
-                    while (duplicateIndex >= 0)
+                    while (hashSet.Contains(s[right]))
                     {
-                        hashSet.Remove(list[0]);
-                        list.RemoveAt(0);
-                        duplicateIndex--;
+                        hashSet.Remove(s[left]);
+                        left++;
                     }
-                    
                     hashSet.Add(s[right]);
-                    left++;
                 }
 
                 right++;
