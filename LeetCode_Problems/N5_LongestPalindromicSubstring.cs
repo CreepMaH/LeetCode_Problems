@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace LeetCode_Problems
 {
-    public class N4_MedianOfTwoSortedArrays
+    //Given a string s, return the longest palindromic substring in s
+    public class N5_LongestPalindromicSubstring
     {
-        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        public string LongestPalindrome(string s)
         {
             throw new NotImplementedException();
         }
