@@ -14,6 +14,7 @@ namespace Tests
 
         [TestCase("babad", new string[] { "bab", "aba" })]
         [TestCase("cbbd", new string[] { "bb" })]
+        [TestCase("a", new string[] { "a" })]
         public void Test1(string s, string[] expected)
         {
             string actual = _n5LongestPalindromicSubstring.LongestPalindrome(s);

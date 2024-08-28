@@ -11,7 +11,52 @@ namespace LeetCode_Problems
     {
         public string LongestPalindrome(string s)
         {
-            throw new NotImplementedException();
+            string longestPalindrome = s[0..1];
+
+            for (int left = 0; left < s.Length; left++)
+            {
+                int right = left + 1;
+
+                while (right < s.Length)
+                {
+                    string currentString = s[left..(right + 1)];
+                    bool isPalindrome = CheckTheStringIsPalindrome(currentString);
+                    if (isPalindrome)
+                    {
+                        bool isCurrentStringLonger = isPalindrome && longestPalindrome.Length < currentString.Length;
+
+                        if (isCurrentStringLonger)
+                        {
+                            longestPalindrome = currentString;
+                        }
+                    }
+
+                    right++;
+                }
+            }
+
+            return longestPalindrome;
+        }
+
+        private bool CheckTheStringIsPalindrome(string s)
+        {
+            int left = 0;
+            int right = s.Length - 1;
+
+            while (left <= right)
+            {
+                if (s[left] != s[right])
+                {
+                    return false;
+                }
+                else
+                {
+                    left++;
+                    right--;
+                }
+            }
+
+            return true;
         }
     }
 }
