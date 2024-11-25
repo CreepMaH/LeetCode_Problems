@@ -27,7 +27,7 @@ namespace Tests
                     new List<IList<int>>
                     {
                         new List<int> { -1, -1, 2 },
-                        new List<int> { -1, 0, 1 }
+                        new List<int> { 0, -1, 1 }
                     });
 
                 yield return new TestCaseData(
@@ -40,6 +40,10 @@ namespace Tests
                     {
                         new List<int> { 0, 0, 0 }
                     });
+
+                yield return new TestCaseData(
+                    new int[] { 1, 2, -2, -1 },
+                    new List<IList<int>>());
             }
         }
     }
