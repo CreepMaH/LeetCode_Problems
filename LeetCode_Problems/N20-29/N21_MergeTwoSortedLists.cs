@@ -8,55 +8,30 @@ namespace LeetCode_Problems
     {
         internal ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
         {
-            List<int> values = [];
-            ListNode? current1 = list1,
+            ListNode? dummy = new(),
+                tail = dummy,
+                current1 = list1,
                 current2 = list2;
 
-            while (true)
+            while (current1 != null && current2 != null)
             {
-                if (current1 == null && current2 == null)
+                if (current1.val < current2.val)
                 {
-                    break;
-                }
-
-                if (current1 != null)
-                {
-                    values.Add(current1.val);
+                    tail.next = current1;
                     current1 = current1.next;
                 }
-                if (current2 != null)
+                else
                 {
-                    values.Add(current2.val);
+                    tail.next = current2;
                     current2 = current2.next;
                 }
+
+                tail = tail.next;
             }
 
-            if (values.Count > 0)
-            {
-                values.Sort();
-                ListNode head = new ListNode
-                {
-                    next = null,
-                    val = values[0]
-                };
+            tail.next = current1 ?? current2;
 
-                ListNode next = head;
-                for (int i = 1; i < values.Count; i++)
-                {
-                    next.next = new ListNode
-                    {
-                        val = values[i],
-                        next = null
-                    };
-
-                    next = next.next;
-                }
-                return head;
-            }
-            else
-            {
-                return null;
-            }
+            return dummy.next;
         }
     }
 
