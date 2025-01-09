@@ -3,6 +3,8 @@ using LeetCode_Problems.Common;
 
 namespace Tests
 {
+    [TestFixture]
+    [Category("N20-29")]
     internal class N21_MergeTwoSortedLists_Test
     {
         private readonly N21_MergeTwoSortedLists _n21_MergeTwoSortedLists;
