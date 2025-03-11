@@ -24,7 +24,8 @@ namespace Tests
                 expected = expected.next;
             }
 
-            var actual = _n23_MergeKSortedLists.MergeKLists(lists);
+            //var actual = _n23_MergeKSortedLists.MergeKLists(lists);
+            var actual = _n23_MergeKSortedLists.MergeKLists_MinHeap(lists);
 
             List<int> actualValues = [];
             while (actual?.next != null)

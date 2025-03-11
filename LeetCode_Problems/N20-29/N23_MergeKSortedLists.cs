@@ -31,6 +31,35 @@ namespace LeetCode_Problems
 
             return minNode;
         }
+
+        internal ListNode? MergeKLists_MinHeap(ListNode?[] lists)
+        {
+            PriorityQueue<ListNode, int> queue = new();
+            foreach (var node in lists)
+            {
+                if (node != null)
+                {
+                    queue.Enqueue(node, node.val);
+                }
+            }
+
+            ListNode? dummy = new();
+            ListNode? tail = dummy;
+
+            while (queue.Count > 0)
+            {
+                tail.next = queue.Dequeue();
+                tail = tail.next;
+
+                var next = tail.next;
+                if (next != null)
+                {
+                    queue.Enqueue(next!, next!.val);
+                }
+            }
+
+            return dummy.next;
+        }
     }
 
 }
