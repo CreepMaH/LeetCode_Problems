@@ -9,10 +9,10 @@ namespace Tests.Common
         /// </summary>
         /// <param name="nodesValues">The head of linked list.</param>
         /// <returns></returns>
-        internal static ListNode? CreateLinkedList(int[] nodesValues)
+        internal static ListNode? CreateSingle(int[]? nodesValues)
         {
             ListNode head = new();
-            if (nodesValues.Length > 0)
+            if (nodesValues?.Length > 0)
             {
                 head.val = nodesValues[0];
             }
@@ -30,6 +30,18 @@ namespace Tests.Common
             }
 
             return head;
+        }
+
+        internal static ListNode?[] CreateArray(int[][] nodesValues)
+        {
+            List<ListNode?> listNodes = [];
+
+            foreach (var node in nodesValues)
+            {
+                listNodes.Add(CreateSingle(node));
+            }
+
+            return [.. listNodes];
         }
     }
 }
