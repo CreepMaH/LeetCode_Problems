@@ -3,17 +3,19 @@ using LeetCode_Problems.Common;
 
 namespace Tests
 {
-    internal class N19_RemoveNthNodeFromLinkedList_Test
+    [TestFixture]
+    [Category("N20-29")]
+    internal class N23_MergeKSortedLists_Test
     {
-        private readonly N19_RemoveNthNodeFromLinkedList _n19_RemoveNthNodeFromLinkedList;
+        private readonly N23_MergeKSortedLists _n23_MergeKSortedLists;
 
-        internal N19_RemoveNthNodeFromLinkedList_Test()
+        public N23_MergeKSortedLists_Test()
         {
-            _n19_RemoveNthNodeFromLinkedList = new N19_RemoveNthNodeFromLinkedList();
+            _n23_MergeKSortedLists = new N23_MergeKSortedLists();
         }
 
         [TestCaseSource(nameof(TestCases))]
-        public void Test1(ListNode? head, int n, ListNode? expected)
+        public void Test1(ListNode?[] lists, ListNode? expected)
         {
             List<int> expectedValues = [];
             while (expected?.next != null)
@@ -22,7 +24,9 @@ namespace Tests
                 expected = expected.next;
             }
 
-            var actual = _n19_RemoveNthNodeFromLinkedList.RemoveNthFromEnd(head, n);
+            //var actual = _n23_MergeKSortedLists.MergeKLists(lists);
+            var actual = _n23_MergeKSortedLists.MergeKLists_MinHeap(lists);
+
             List<int> actualValues = [];
             while (actual?.next != null)
             {
@@ -38,19 +42,16 @@ namespace Tests
             get
             {
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([1, 2, 3, 4, 5]),
-                    2,
-                    Common.LinkedListCreator.CreateSingle([1, 2, 3, 5]));
+                    Common.LinkedListCreator.CreateArray([[1, 4, 5], [1, 3, 4], [2, 6]]),
+                    Common.LinkedListCreator.CreateSingle([1, 1, 2, 3, 4, 4, 5, 6]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([1]),
-                    1,
+                    Common.LinkedListCreator.CreateArray([]),
                     Common.LinkedListCreator.CreateSingle([]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([1, 2]),
-                    1,
-                    Common.LinkedListCreator.CreateSingle([1]));
+                    Common.LinkedListCreator.CreateArray([[]]),
+                    Common.LinkedListCreator.CreateSingle([]));
             }
         }
     }
