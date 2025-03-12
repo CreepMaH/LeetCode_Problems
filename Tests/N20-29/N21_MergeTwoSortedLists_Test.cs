@@ -41,19 +41,19 @@ namespace Tests
             get
             {
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([1, 2, 4]),
-                    Common.LinkedListCreator.CreateSingle([1, 3, 4]),
-                    Common.LinkedListCreator.CreateSingle([1, 1, 2, 3, 4, 4]));
+                    Common.LinkedListCreator.CreateHead([1, 2, 4]),
+                    Common.LinkedListCreator.CreateHead([1, 3, 4]),
+                    Common.LinkedListCreator.CreateHead([1, 1, 2, 3, 4, 4]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([]),
-                    Common.LinkedListCreator.CreateSingle([]),
-                    Common.LinkedListCreator.CreateSingle([]));
+                    Common.LinkedListCreator.CreateHead([]),
+                    Common.LinkedListCreator.CreateHead([]),
+                    Common.LinkedListCreator.CreateHead([]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateSingle([]),
-                    Common.LinkedListCreator.CreateSingle([0]),
-                    Common.LinkedListCreator.CreateSingle([0]));
+                    Common.LinkedListCreator.CreateHead([]),
+                    Common.LinkedListCreator.CreateHead([0]),
+                    Common.LinkedListCreator.CreateHead([0]));
             }
         }
     }

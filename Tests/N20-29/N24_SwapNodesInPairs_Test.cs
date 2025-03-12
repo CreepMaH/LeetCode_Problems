@@ -3,17 +3,19 @@ using LeetCode_Problems.Common;
 
 namespace Tests
 {
-    internal class N19_RemoveNthNodeFromLinkedList_Test
+    [TestFixture]
+    [Category("N20-29")]
+    internal class N24_SwapNodesInPairs_Test
     {
-        private readonly N19_RemoveNthNodeFromLinkedList _n19_RemoveNthNodeFromLinkedList;
+        private readonly N24_SwapNodesInPairs _n24_SwapNodesInPairs;
 
-        internal N19_RemoveNthNodeFromLinkedList_Test()
+        public N24_SwapNodesInPairs_Test()
         {
-            _n19_RemoveNthNodeFromLinkedList = new N19_RemoveNthNodeFromLinkedList();
+            _n24_SwapNodesInPairs = new N24_SwapNodesInPairs();
         }
 
         [TestCaseSource(nameof(TestCases))]
-        public void Test1(ListNode? head, int n, ListNode? expected)
+        public void Test1(ListNode? head, ListNode? expected)
         {
             List<int> expectedValues = [];
             while (expected?.next != null)
@@ -22,7 +24,8 @@ namespace Tests
                 expected = expected.next;
             }
 
-            var actual = _n19_RemoveNthNodeFromLinkedList.RemoveNthFromEnd(head, n);
+            var actual = _n24_SwapNodesInPairs.SwapPairs(head);
+
             List<int> actualValues = [];
             while (actual?.next != null)
             {
@@ -38,19 +41,20 @@ namespace Tests
             get
             {
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateHead([1, 2, 3, 4, 5]),
-                    2,
-                    Common.LinkedListCreator.CreateHead([1, 2, 3, 5]));
+                    Common.LinkedListCreator.CreateHead([1, 2, 3, 4]),
+                    Common.LinkedListCreator.CreateHead([2, 1, 4, 3]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateHead([1]),
-                    1,
+                    Common.LinkedListCreator.CreateHead([]),
                     Common.LinkedListCreator.CreateHead([]));
 
                 yield return new TestCaseData(
-                    Common.LinkedListCreator.CreateHead([1, 2]),
-                    1,
+                    Common.LinkedListCreator.CreateHead([1]),
                     Common.LinkedListCreator.CreateHead([1]));
+
+                yield return new TestCaseData(
+                    Common.LinkedListCreator.CreateHead([1, 2, 3]),
+                    Common.LinkedListCreator.CreateHead([2, 1, 3]));
             }
         }
     }

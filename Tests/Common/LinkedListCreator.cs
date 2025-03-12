@@ -9,7 +9,7 @@ namespace Tests.Common
         /// </summary>
         /// <param name="nodesValues">The head of linked list.</param>
         /// <returns></returns>
-        internal static ListNode? CreateSingle(int[]? nodesValues)
+        internal static ListNode? CreateHead(int[]? nodesValues)
         {
             ListNode head = new();
             if (nodesValues?.Length > 0)
@@ -38,7 +38,7 @@ namespace Tests.Common
 
             foreach (var node in nodesValues)
             {
-                listNodes.Add(CreateSingle(node));
+                listNodes.Add(CreateHead(node));
             }
 
             return [.. listNodes];
