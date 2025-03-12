@@ -43,15 +43,15 @@ namespace Tests
             {
                 yield return new TestCaseData(
                     Common.LinkedListCreator.CreateArray([[1, 4, 5], [1, 3, 4], [2, 6]]),
-                    Common.LinkedListCreator.CreateSingle([1, 1, 2, 3, 4, 4, 5, 6]));
+                    Common.LinkedListCreator.CreateHead([1, 1, 2, 3, 4, 4, 5, 6]));
 
                 yield return new TestCaseData(
                     Common.LinkedListCreator.CreateArray([]),
-                    Common.LinkedListCreator.CreateSingle([]));
+                    Common.LinkedListCreator.CreateHead([]));
 
                 yield return new TestCaseData(
                     Common.LinkedListCreator.CreateArray([[]]),
-                    Common.LinkedListCreator.CreateSingle([]));
+                    Common.LinkedListCreator.CreateHead([]));
             }
         }
     }
